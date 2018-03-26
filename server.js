@@ -1,5 +1,5 @@
 const webpush = require('web-push');
-const pushSubscription = {"endpoint":"https://fcm.googleapis.com/fcm/send/c4yLf_1XIEw:APA91bF7vxDOMWz50dmIvZqzzpvnGj4u5k4moQKJ-QHYrYxTD_I7ctTd4nCVzb3yIgMQkNcArnkSglUZZ1K2GRx2PkswJ12pxBxgx0l7tSyP36GcfU51WZyTJ25oWOfiAUG7ThuPk5r-","expirationTime":null,"keys":{"p256dh":"BCDYFsODNEJIHnDUajE6Qjy0fajgkYVIgKls5FGj9ukHmYDKvcXXj16n3tLO-Cf7RNZY-_5kRSUrPzAabOrvu5o=","auth":"3x5q6NxJ7UTIx1Hi40-rJw=="}};
+const pushSubscription = {"endpoint":"https://updates.push.services.mozilla.com/wpush/v2/gAAAAABauJCYXH80IH0NiKwNcRVs_oRO-w_S-Q7L6U80JqFGbnIMDsCpGckfbtDejRO_CZ4aaDRxmoEPgNZ_fX52jBmq83GZI2WD2mEmIgfWXwvcabbKNDXxvTN-1DuwRq1TAlnJqkvdcZ01dvtrakgmbboOi-XmaIcafdIvUCdFB7Ktg90okp0","keys":{"auth":"0OefeXqJoT-6Pv_E0P1mcg","p256dh":"BBmgYXBIzp4xs_4FdW53Ewm2byDdPgELDINyszIc6rZe1hCzBBHPMDZe1iNwHzVs3BRWMHdw23RqFwOvMzMqI28"}};
 
 const payload = 'sanjeet singh vhopjhg';
 
@@ -39,14 +39,17 @@ try {
  webpush.sendNotification(pushSubscription, new Buffer(JSON.stringify(params), 'utf8'))
              .then(
                  function (data) {
-                     return callback(null, data);
+                    console.log(data);
+                    //return callback(null, data);
                  },
                  function (err) {
-                     return callback(err, null);
+                   console.log(err);
+                    //return callback(err, null);
                  }
              )
              .catch(function (ex) {
-                 return callback(new Error(ex), null);
+                console.log(ex);
+                //return callback(new Error(ex), null);
              }
          );
 
